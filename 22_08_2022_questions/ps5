@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ps5
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int[][] jagged_arr = new int[4][];
+
+            // Initialize the elements
+            jagged_arr[0] = new int[] { 16, 69, 51, 420 };
+            jagged_arr[1] = new int[] { 1, 312, 89, 66 };
+            jagged_arr[2] = new int[] { 89, 666, 524, 444 };
+            jagged_arr[3] = new int[] { 2874, 313, 4 };
+
+            // Display the array elements:
+            for (int n = 0; n < jagged_arr.Length; n++)
+            {
+
+                // Print the row number
+                Console.Write("Row({0}): ", n);
+
+                for (int k = 0; k < jagged_arr[n].Length; k++)
+                {
+
+                    // Print the elements in the row
+                    Console.WriteLine("{0} ", jagged_arr[n][k]);
+                }
+                Console.WriteLine();
+                Console.ReadKey();
+
+
+
+            }
+        }
+    }
+}
