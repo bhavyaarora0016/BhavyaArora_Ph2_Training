@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace day4_ps1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int num1, num2, min, max;
+
+            Console.WriteLine("Enter first number: ");
+            num1 = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Enter second number: ");
+            num2 = Convert.ToInt32(Console.ReadLine());
+
+            if (num1 > num2)
+                max = num1;
+            else
+                max = num2;
+
+            if (num1 < num2)
+                min = num1;
+            else
+                min = num2;
+
+            Console.WriteLine("Minimum number = {0}", min);
+            Console.WriteLine("Maximum number = {0}", max);
+
+            Console.ReadLine();
+
+
+        }
+    }
+}
