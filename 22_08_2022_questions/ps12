@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ps12
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] arr12 = new int[69];
+
+            int num, max, min;
+
+            Console.WriteLine("enter number of elements to store in array: ");
+            num = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("enter elements to store: ");
+            for (int i = 0; i < num; i++)
+            {
+                Console.WriteLine("element - {0} : ", i);
+                arr12[i] = Convert.ToInt32(Console.ReadLine());
+            }
+
+            max = arr12[0];
+            min = arr12[0];
+
+            for (int i = 1; i < num; i++)
+            {
+                if (arr12[i] > max)
+                {
+                    max = arr12[i];
+                }
+
+                if (arr12[i] < min)
+                {
+                    min = arr12[i];
+                }
+            }
+
+            Console.WriteLine("maximum element is : {0}", max);
+            Console.WriteLine("minimum element is : {0}", min);
+
+            Console.ReadKey();
+        }
+    }
+}
