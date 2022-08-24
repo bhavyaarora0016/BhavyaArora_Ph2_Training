@@ -1,0 +1,51 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ps6
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Stack s6 = new Stack();
+
+            s6.Push(16);
+            s6.Push("second element");
+            s6.Push(69.69f);
+            s6.Push(new DateTime(2000, 07, 16));
+            s6.Push(true);
+
+            foreach (var item in s6)
+            {
+                Console.WriteLine(item + ",");
+            }
+
+            Console.WriteLine("------------");
+            Console.WriteLine("top element is: " + s6.Peek());
+            Console.WriteLine("number of elements: " + s6.Count);
+           
+            s6.Pop(); //true
+            s6.Pop(); //DateTime
+
+            Console.WriteLine("------------");
+
+            Console.WriteLine("after pop (2 elements):");
+            foreach (var item in s6)
+            {
+                Console.WriteLine(item + ",");
+            }
+
+            Console.WriteLine("------------");
+            Console.WriteLine("top element is: " + s6.Peek());
+            Console.WriteLine("number of elements: " + s6.Count);
+
+
+            Console.ReadKey();
+
+        }
+    }
+}
