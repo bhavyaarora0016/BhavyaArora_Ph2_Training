@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace day3_ps1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int num1, num2, temp;
+            Console.Write("\n Input first number :");
+            num1 = int.Parse(Console.ReadLine());
+            Console.Write("\n Input second number :");
+            num2 = int.Parse(Console.ReadLine());
+            temp = num1;
+            num1 = num2;
+            num2 = temp;
+            Console.Write("\nAfter Swapping");
+            Console.Write("\nFirst Number :" + num1);
+            Console.Write("\nSecond Number :" + num2);
+            Console.Read();
+        }
+    }
+}
