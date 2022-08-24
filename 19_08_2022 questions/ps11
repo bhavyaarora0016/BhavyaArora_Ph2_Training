@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace day4_ps11
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int num1, num2;
+            int result = 0;
+
+            Console.WriteLine("enter first number: ");
+            num1 = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("enter second number: ");
+            num2 = Convert.ToInt32(Console.ReadLine());
+
+            for (int i = num1; i < num2; i = i + 1)
+            {
+                result = result + i;
+                
+            }
+            
+
+            Console.WriteLine("sum of numbers between {0} and {1} is {2}", num1, num2, result.ToString());
+            Console.ReadLine();
+        }
+    }
+}
