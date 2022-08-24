@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _2308_ps1
+{
+    internal class _2308_ps2
+    {
+        public int Add(int num1, int num2)
+        {
+            int result = num1 + num2;
+            return result;
+        }
+
+        //public static void Add1()
+        //{
+        //    int num3,num4;
+        //    int result1 = num3 + num4;
+        //    return result1;
+        //}
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("enter first number: ");
+            int x = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("enter second number: ");
+            int y = Convert.ToInt32(Console.ReadLine());
+
+            int resAdd;
+
+            _2308_ps2 n = new _2308_ps2();
+
+            resAdd = n.Add(x, y);
+            Console.WriteLine("sum of {0} and {1} is {2}", x,y,resAdd);
+
+            //_2308_ps2.Add1();
+
+            Console.ReadLine();
+        }
+    }
+
+    
+}
