@@ -1,0 +1,32 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ps11
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            SortedList sl11 = new SortedList();
+
+            sl11.Add(1, "one");
+            sl11.Add(2, "two");
+            sl11.Add(3, "three");
+            sl11.Add(4, "four");
+            sl11.Add(5, "five");
+            sl11.Add(6, "six");
+
+            Console.WriteLine("sorted list: ");
+            foreach (DictionaryEntry item in sl11)
+            {
+                Console.WriteLine("{0} and {1}", item.Key, item.Value);
+            }
+
+            Console.ReadKey();
+        }
+    }
+}
