@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _2308_ps1
+{
+    internal class _2308_ps6
+    {
+        enum DeptNames
+        {
+            Purchase=1,
+            Sales=2,
+            Training=3,
+            Accounts=4
+        }
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("enter dept name: ");
+            int deptno = Convert.ToInt32(Console.ReadLine());
+
+            var nameDept = (DeptNames)deptno;
+            Console.WriteLine(nameDept);
+
+            Console.ReadKey();
+        }
+
+         
+    }
+}
