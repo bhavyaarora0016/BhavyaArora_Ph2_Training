@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace day4_ps12
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            int sum = 0;
+
+            Console.WriteLine("numbers between 100 & 200, divisible by 9: ");
+
+            for (int i = 101; i < 200; i++)
+            {
+                if (i % 9 == 0)
+                {
+                    Console.WriteLine("{0} ", i);
+                    sum+=i;
+                }
+            }
+            Console.WriteLine("required sum: {0}", sum);
+            Console.ReadLine();
+
+
+        }
+    }
+}
