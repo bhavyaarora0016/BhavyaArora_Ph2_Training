@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ps14
+{
+    internal class Program
+    {
+        static int count(int[] S, int m, int n)
+        {
+           
+            
+            if (n == 0)
+                return 1;
+
+            if (n < 0)
+                return 0;
+
+            if (m <= 0)
+                return 0;
+
+            
+            return count(S, m - 1, n) +
+                count(S, m, n - S[m - 1]);
+        }
+        static void Main(string[] args)
+        {
+            int[] S;
+            int[] arr = { 1, 2, 3 };
+            Console.WriteLine("enter amount of cents: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+            int m = arr.Length;
+            Console.WriteLine("output: ");
+            Console.Write(count(arr, m, n));
+
+            Console.ReadKey();
+        }
+    }
+}
