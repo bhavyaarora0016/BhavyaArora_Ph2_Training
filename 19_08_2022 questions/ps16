@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace day4_ps16
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int counter = 0;
+            int points = 100;
+            string action;
+
+            Console.WriteLine("Input: ");
+            string input = Console.ReadLine();  
+
+            while (counter < 4)
+            { 
+                if (input == "hit")
+                {
+                    points = points + 10;
+                    counter = counter + 1;
+                }
+                else if(input == "miss")
+                {
+                    points = points - 20;
+                    counter = counter + 1;
+                }
+                Console.WriteLine(points);
+            }
+
+            Console.ReadLine();
+            
+
+        }
+    }
+}
