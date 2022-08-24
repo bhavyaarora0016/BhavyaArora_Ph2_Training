@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace day4_ps14
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int num;
+
+            Console.WriteLine("Enter a number: ");
+            num = Convert.ToInt32(Console.ReadLine());
+
+            switch (num % 2)
+            {
+                case 0: Console.WriteLine("Given number is even");
+                    break;
+
+                    case 1: Console.WriteLine("Given number is odd");
+                    break;
+            }
+
+            switch (num % 10)
+            {
+                case 0: Console.WriteLine("Given number is a multiple of 10");
+                    break;
+                case 1: Console.WriteLine("Given number is not a multiple of 10");
+                    break;
+            }
+
+            
+
+            Console.ReadLine();
+
+        }
+    }
+}
