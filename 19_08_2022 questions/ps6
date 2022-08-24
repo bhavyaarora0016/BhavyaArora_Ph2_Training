@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace day4_ps6
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int yearCheck;
+
+            Console.WriteLine("Enter year: ");
+            yearCheck = Convert.ToInt32(Console.ReadLine());
+
+            if ((yearCheck % 400) == 0)
+                Console.WriteLine("the year {0} is a leap year", yearCheck);
+            else if ((yearCheck % 100) == 0)
+                Console.WriteLine("the year {0} is not a leap year", yearCheck);
+            else if ((yearCheck % 4) == 0)
+                Console.WriteLine("the year {0} is a leap year", yearCheck);
+            else
+                Console.WriteLine("the year {0} is not a leap year", yearCheck);
+
+            Console.ReadLine();
+        }
+    }
+}
