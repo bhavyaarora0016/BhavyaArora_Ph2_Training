@@ -1,0 +1,73 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using ReusableCodeLibrary;
+
+namespace MyApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //ps1
+
+            Console.WriteLine("enter first string:");
+            string s1 = Console.ReadLine();
+
+            Console.WriteLine("enter second string:");
+            string s2 = Console.ReadLine();
+
+            Sample.CompareString(s1,s2);
+
+            Console.WriteLine("--------------------");
+
+            //ps5
+
+            Console.WriteLine("enter string for uppercase: ");
+            string s3 = Console.ReadLine();
+            Sample.UppercaseString(s3);
+
+            Console.WriteLine("--------------------");
+
+            //ps4
+
+            Console.WriteLine("Welcome to the world of C# Programming");
+            string s5 = "Welcome to the world of C# Programming";
+            Sample.SplitString(s5);
+
+            Console.WriteLine("--------------------");
+
+            //ps3
+
+            Console.WriteLine("index of C in above string: ");
+            string s6 = "Welcome to the world of C# Programming";
+            Sample.IndexOfString(s6);
+
+            Console.WriteLine("--------------------");
+
+            //ps2
+
+            Console.WriteLine("enter string to copy: ");
+            string s7 = Console.ReadLine();
+            Sample.CopyString(s7);
+
+            Console.WriteLine("--------------------");
+
+            //ps7
+
+            Console.WriteLine("today's date properties: ");
+            Sample.Datetime1();
+
+            Console.WriteLine("--------------------");
+
+            //ps6
+
+            Sample.MakeFile();
+            Console.WriteLine("text file created");
+
+            Console.ReadLine();
+        }
+    }
+}
