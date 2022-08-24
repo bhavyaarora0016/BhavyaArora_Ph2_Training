@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ps3
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int num;
+            int sum = 0;
+            int[] arr3 = new int[100];
+
+            Console.WriteLine("Enter number of elements to store: ");
+            num = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("enter the elements of the array: ");
+            for (int i = 0; i < num; i++)
+            {
+                Console.WriteLine("element - {0} : ", i);
+                arr3[i] = Convert.ToInt32(Console.ReadLine());
+            }
+
+            Console.WriteLine("values stored are: ");
+            for (int i = 0; i < num; i++)
+            {
+                Console.WriteLine("{0} ", arr3[i]);
+
+            }
+
+            Console.WriteLine("------");
+
+            for (int i = 0; i < num; i++)
+            {
+                sum += arr3[i];
+            }
+
+            Console.WriteLine("sum of stored values in array is: {0}", sum);
+
+            Console.ReadKey();
+        }
+    }
+}
