@@ -1,0 +1,91 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace ReusableCodeLibrary
+{
+    public class Sample
+    {
+
+        //ps1
+
+        public static void CompareString(string s1, string s2)
+        {
+           
+
+            if (String.Equals(s1, s2))
+                Console.WriteLine("strings are equal");
+            else
+                Console.WriteLine("strings not equal");
+        }
+
+        //ps5
+
+        public static void UppercaseString(string s3)
+        {
+            
+
+            string s4 = s3.ToUpper();
+            Console.WriteLine(s4);
+        }
+
+        //ps4
+
+        public static void SplitString(string s5)
+        {
+           
+            
+            string[] sep = s5.Split('#');
+            foreach (var s in sep)
+            {
+                Console.WriteLine("split: " + s);
+            }
+        }
+
+        //ps3
+
+        public static void IndexOfString(string s6)
+        {
+            int i = s6.IndexOf('C');
+            Console.WriteLine(i);
+        }
+
+        //ps2
+
+        public static void CopyString(string s7)
+        {
+            string s8 = String.Copy(s7);
+            Console.WriteLine("copied string: " + s8);
+        }
+
+        //ps7
+
+        public static void Datetime1()
+        {
+            DateTime dt = new DateTime();
+            dt = DateTime.Now;
+
+            Console.WriteLine("today's date: {0}", dt);
+            Console.WriteLine("required year: {0}", dt.Year);
+            Console.WriteLine("required month: {0}", dt.Month);
+            Console.WriteLine("required day: {0}", dt.Day);
+            Console.WriteLine("required hour: {0}", dt.Hour);
+            Console.WriteLine("required minutes: {0}", dt.Minute);
+            Console.WriteLine("required seconds: {0}", dt.Second);
+            Console.WriteLine("required milliseconds: {0}", dt.Millisecond);
+        }
+
+        //ps6
+
+        public static void MakeFile()
+        {
+            string path = "D:\\c#_training\\simplilearn\\MyApp\\firstFile.txt";
+            File.Create(path);
+        }
+
+
+    }
+}
