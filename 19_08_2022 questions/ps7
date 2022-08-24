@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace day4_ps7
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            double sub1, sub2, sub3, percent, total;
+            string div;
+
+            Console.WriteLine("Enter first subject marks: ");
+            sub1 = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Enter second subject marks: ");
+            sub2 = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Enter third subject marks: ");
+            sub3 = Convert.ToInt32(Console.ReadLine());
+
+            total = sub1 + sub2 + sub3;
+            percent = total / 3.0;
+
+            if (percent > 60)
+                div = "First";
+            else
+                if (percent < 60 && percent > 45)
+                div = "Second";
+            else
+                if (percent < 45 && percent > 35)
+                div = "Third";
+            else
+                div = "Fail";
+
+            Console.WriteLine("Total marks are {0}", total);
+            Console.WriteLine("Percentage is {0} %", percent);
+            Console.WriteLine("Division scored is {0}", div);
+
+            Console.ReadLine();
+
+        }
+    }
+}
