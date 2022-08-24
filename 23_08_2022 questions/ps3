@@ -1,0 +1,65 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _2308_ps1
+{
+    internal class _2308_ps3
+    {
+        struct Employee
+        {
+            public int empno;
+            public string ename;
+            public int sal;
+            public int deptno;
+
+            public int EmpNo
+            {
+                get { return empno; }
+                set { empno = value; }
+            }
+
+            public string EName
+            {
+                get { return ename; }
+                set { ename = value; }
+            }
+
+            public int Sal
+            {
+                get { return sal; }
+                set { sal = value; }
+            }
+
+            public int DeptNo
+            {
+                get { return deptno; }
+                set { deptno = value; }
+            }
+        }
+
+        
+
+        static void Main(string[] args)
+        {
+            Employee e1 = new Employee();
+
+            e1.EmpNo = 1;
+            e1.EName = "employee";
+            e1.Sal = 69000;
+            e1.DeptNo = 2;
+
+            Console.WriteLine("employee data: ");
+            Console.WriteLine("employee no.: " + e1.EmpNo);
+            Console.WriteLine("employee name.: " + e1.EName);
+            Console.WriteLine("employee salary.: " + e1.Sal);
+            Console.WriteLine("employee department number: " + e1.DeptNo);
+
+            Console.ReadKey();
+
+
+        }
+    }
+}
