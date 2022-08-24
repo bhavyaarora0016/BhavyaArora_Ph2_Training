@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _2308_ps1
+{
+    internal class _2308_ps5
+    {
+        struct Employee
+        {
+            public int empno;
+            public string ename;
+            public int sal;
+            public int deptno;
+        }
+
+        static void Main(string[] args)
+        {
+            int total = 4;
+            Employee[] emp = new Employee[total];
+
+            for (int i = 0; i < total; i++)
+            {
+                Console.WriteLine("employee number: ");
+                int empnumber = Convert.ToInt32(Console.ReadLine());
+                emp[i].empno = empnumber;
+
+                Console.WriteLine("employee name: ");
+                string empname = Console.ReadLine();
+                emp[i].ename = empname;
+
+                Console.WriteLine("employee salary: ");
+                int empsalary = Convert.ToInt32(Console.ReadLine());
+                emp[i].sal = empsalary;
+
+                Console.WriteLine("employee department number: ");
+                int empdeptno = Convert.ToInt32(Console.ReadLine());
+                emp[i].deptno = empdeptno;
+                Console.WriteLine("------------------");
+            }
+            Console.ReadLine();
+        }
+    }
+}
