@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace day3_ps11
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int num1, num2;
+            Console.WriteLine("Enter first integer: ");
+            num1 = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Enter second integer: ");
+            num2 = Convert.ToInt32(Console.ReadLine());
+
+            //check if both positive
+            Console.WriteLine("expected output: ");
+            Console.WriteLine((num1>0 && num2>0));
+
+            Console.ReadLine();
+        }
+    }
+}
