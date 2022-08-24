@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ps9
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            float[] arr9 = new float[] {7,420,69,16,51,999,313,444};
+
+            Console.WriteLine("Araay: ");
+            foreach (float item in arr9)
+            {
+                Console.WriteLine(item + ",");
+            }
+
+            Console.WriteLine("--------------");
+            Array.Sort(arr9);
+            Console.WriteLine("array in ascending order: ");
+
+            foreach(float item in arr9)
+            {
+                Console.WriteLine(item + ",");
+            }
+
+            Console.WriteLine("--------------");
+            Array.Reverse(arr9);
+            Console.WriteLine("array in descending order: ");
+
+            foreach (float item in arr9)
+            {
+                Console.WriteLine(item + ",");
+            }
+
+            Console.ReadKey();
+        }
+    }
+}
