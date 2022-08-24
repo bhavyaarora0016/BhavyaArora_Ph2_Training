@@ -1,0 +1,25 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace day3_ps16
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter first name: ");
+            string firstName = Console.ReadLine();
+
+            Console.WriteLine("Enter last name: ");
+            string lastName = Console.ReadLine();
+
+            Console.WriteLine("Logged in successfully.");
+            Console.WriteLine("Welcome to my app, {0} {1}", firstName, lastName);
+
+            Console.ReadLine(); 
+        }
+    }
+}
