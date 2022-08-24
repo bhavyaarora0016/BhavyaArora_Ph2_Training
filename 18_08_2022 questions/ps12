@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace day3_ps12
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter string: ");
+            string s = Console.ReadLine();
+
+            if (String.IsNullOrEmpty(s))
+            {
+                Console.WriteLine("entered string is null or empty");
+            }
+            else
+            {
+                Console.WriteLine("String {0} is not null or empty", s);
+            }
+            
+            Console.ReadLine();
+        }
+    }
+}
