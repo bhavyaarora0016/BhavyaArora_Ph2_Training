@@ -1,0 +1,36 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ps7
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Queue q7 = new Queue();
+
+            q7.Enqueue("first element");
+            q7.Enqueue(2);
+            q7.Enqueue(3);
+            q7.Enqueue("test");
+            q7.Enqueue(5);
+
+            Console.WriteLine("Number of elements in the Queue: {0}", q7.Count);
+            Console.WriteLine("element in the beginning: {0}", q7.Peek());
+
+            Console.WriteLine("-------------");
+
+            q7.Dequeue();
+
+            Console.WriteLine("Number of elements in the Queue: {0}", q7.Count);
+            Console.WriteLine("element in the beginning: {0}", q7.Peek());
+
+            Console.ReadKey();
+
+        }
+    }
+}
