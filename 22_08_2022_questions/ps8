@@ -1,0 +1,45 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ps8
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Hashtable ht8 = new Hashtable();
+
+            ht8.Add(1,"one");
+            ht8.Add(2,"two");
+            ht8.Add(3, "three");
+            ht8.Add(4,"four");
+            ht8.Add(5,"five");
+            ht8.Add(6, "six");
+
+            IDictionaryEnumerator ie = ht8.GetEnumerator();
+            while (ie.MoveNext())
+            {
+                Console.WriteLine(ie.Key + " " + ie.Value);
+            }
+
+            Console.WriteLine("-------------");
+            ht8.Remove(4);
+
+
+            IDictionaryEnumerator ie1 = ht8.GetEnumerator();
+            while (ie1.MoveNext())
+            {
+                Console.WriteLine(ie1.Key + " " + ie1.Value);
+            }
+
+            Console.ReadKey();
+
+            
+
+        }
+    }
+}
