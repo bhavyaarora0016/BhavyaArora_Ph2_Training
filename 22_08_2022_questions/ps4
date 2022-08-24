@@ -1,0 +1,49 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ps4
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            ArrayList al1 = new ArrayList();
+
+            al1.Add(1);
+            al1.Add(420);
+            al1.Add("test");
+            al1.Add(5);
+            al1.Add(999);
+
+            foreach (var value in al1)
+                Console.WriteLine(value + ", ");
+
+
+            Console.WriteLine("Count: {0}", al1.Count);
+
+            Console.WriteLine("------------------");
+
+            Console.WriteLine("adding element");
+            al1.Add(true);
+
+            foreach (var value in al1)
+                Console.WriteLine(value + ", ");
+            Console.WriteLine("Count: {0}", al1.Count);
+
+            Console.WriteLine("------------------");
+
+            Console.WriteLine("removing element");
+            al1.Remove("test");
+
+            foreach (var value in al1)
+                Console.WriteLine(value + ", ");
+            Console.WriteLine("Count: {0}", al1.Count);
+
+            Console.ReadKey();
+        }
+    }
+}
