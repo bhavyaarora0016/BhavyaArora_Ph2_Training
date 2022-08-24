@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _2308_ps1
+{
+    public class _2308_ps4
+    {
+        struct Employee
+        {
+            public int empno;
+            public string ename;
+            public int sal;
+            public int deptno;
+
+
+        }
+
+        public static void DataEmp()
+        {
+            Employee e2 = new Employee();
+
+            e2.empno = 1;
+            e2.ename = "employee";
+            e2.sal = 69000;
+            e2.deptno = 2;
+
+            Console.WriteLine("employee data: ");
+            Console.WriteLine("employee no.: " + e2.empno);
+            Console.WriteLine("employee name.: " + e2.ename);
+            Console.WriteLine("employee salary.: " + e2.sal);
+            Console.WriteLine("employee department number: " + e2.deptno);
+        }
+
+        static void Main(string[] args)
+        {
+            _2308_ps4.DataEmp();
+            Console.ReadLine();
+        }
+
+
+    }
+}
