@@ -1,0 +1,65 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _2308_ps1
+{
+    public class _2308_ps7
+    {
+        public static int Divide(int num1, int num2)
+        {
+            int result = (num1 / num2);
+            return result;
+        }
+
+        public static void TryCatch()
+        {
+            try
+            {
+                Console.WriteLine("result: " + Divide(10, 0));
+                Console.WriteLine("no error");
+            }
+
+            catch (DivideByZeroException ex)
+            {
+
+                Console.WriteLine("Divide by zero error occured.");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+            }
+            finally
+            {
+                Console.WriteLine("Thank you");
+            }
+        }
+
+        static void Main(string[] args)
+        {
+
+            //try
+            //{
+            //    Console.WriteLine("result: " + Divide(10,0));
+            //    Console.WriteLine("no error");
+            //}
+
+            //catch(DivideByZeroException ex)
+            //{
+
+            //    Console.WriteLine("Divide by zero error occured.");
+            //    Console.WriteLine(ex.Message);
+            //    Console.WriteLine(ex.StackTrace);
+            //}
+            //finally
+            //{
+            //    Console.WriteLine("Thank you");
+            //}
+
+            _2308_ps7.TryCatch();
+
+            Console.Read();
+
+        }
+    }
+}
