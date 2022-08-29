@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _2608_ps
+{
+    public class _2608_ps4
+    {
+        static void Main(string[] args)
+        {
+            LinkedList<string> list1 = new LinkedList<string>();
+
+            list1.AddFirst("test_first");
+            list1.AddLast("test_last");
+            list1.AddAfter(list1.First, "test_addAfter");
+            list1.AddBefore(list1.Last, "test_addBefore");
+
+
+            Console.WriteLine("Linked list elements: ");
+            foreach (var item in list1)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("--------------------");
+
+            Console.WriteLine("find value in linked list: ");
+            string findVal = Console.ReadLine();
+
+            LinkedListNode<string> resVal = list1.Find(findVal);
+            if(resVal != null)
+            {
+                Console.WriteLine("element found");
+            }
+            else
+            {
+                Console.WriteLine("no element found");
+            }
+
+            Console.ReadKey();
+
+        }
+    }
+}
