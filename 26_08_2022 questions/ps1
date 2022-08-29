@@ -1,0 +1,78 @@
+using ClassLib;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace _2608_ps
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            student1[] stu = new student1[4];
+
+            for (int i = 0; i < stu.Length; i++)
+            {
+                stu[i] = new student1();
+
+                Console.WriteLine("enter roll no. :");
+                stu[i].RollNo = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("enter first name: ");
+                stu[i].fName = Console.ReadLine();
+
+                Console.WriteLine("enter last name: ");
+                stu[i].lName = Console.ReadLine();
+
+                Console.WriteLine("---------------");
+            }
+
+            Console.ReadLine();
+        }
+    }
+}
+
+
+=============================================================================================================================
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _2608_ps
+{
+    public class student1
+    {
+        private int rollno;
+        public int RollNo
+        {
+            get { return rollno; }
+            set { rollno = value; }
+        }
+
+        private string fname;
+        public string fName
+        {
+            get { return fname; }
+            set { fname = value; }
+
+        }
+
+        private string lname;
+        public string lName
+        {
+            get { return lname; }
+            set { lname = value; }
+        }
+    }
+}
+
+
+
+
