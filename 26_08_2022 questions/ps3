@@ -1,0 +1,122 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _2608_ps
+{
+    internal class _2608_ps3
+    {
+        public static void RemoveProduct(List<Products> prod, int id)
+        {
+            Products p2 = new Products();
+            p2.prId = id;
+            Console.WriteLine("enter product id to be deleted: ");
+            prod.Remove(p2);
+
+        }
+
+        public static void AddProduct(List<Products> prod ,int id, string name)
+        {
+            Products p = new Products();
+            p.prId = id;
+            p.prName = name;
+            prod.Add(p);
+   
+        }
+
+        static void Main(string[] args)
+        {
+            List<Products> prod = new List<Products>();
+
+            Console.WriteLine("enter no. of products: ");
+            int num = Int32.Parse(Console.ReadLine());
+
+            Console.WriteLine("-----------------------");
+
+            for (int i = 0; i < num; i++)
+            {
+                Products pd = new Products();
+                Console.WriteLine("enter product id: ");
+                pd.prId = Int32.Parse(Console.ReadLine());
+
+                Console.WriteLine("enter product name: ");
+                pd.prName = Console.ReadLine();
+
+                Console.WriteLine("-----------------------");
+
+            }
+            foreach (var item in prod)
+            {
+                Console.WriteLine(item.prId + " " + item.prName);
+
+            }
+
+            Console.WriteLine("1. Add");
+            Console.WriteLine("2. Remove");
+            int choice = Int32.Parse(Console.ReadLine());
+            switch (choice)
+            {
+                case 1:
+                    {
+                        Console.WriteLine("enter product id: ");
+                        int id = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("enter product name: ");
+                        string name = Console.ReadLine();
+                        AddProduct(prod, id, name);
+                        break;
+                    }
+                case 2:
+                    {
+                        Console.WriteLine("enter product id: ");
+                        int id = Convert.ToInt32(Console.ReadLine());
+                        
+                        RemoveProduct(prod, id);
+                        break;
+                    }
+            }
+            
+
+            Console.ReadLine();
+        }
+    }
+}
+
+
+====================================================================================================================================================
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _2608_ps
+{
+    public class Products
+    {
+        private int id;
+        private string name;
+
+        public int prId
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+        public string prName
+        {
+            get { return name; }
+            set { name = value; }
+        }
+    }
+}
+
+
+
+
+
+
