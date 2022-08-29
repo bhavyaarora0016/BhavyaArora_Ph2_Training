@@ -1,0 +1,138 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _2908_ps
+{
+    internal class Stack_Generic
+    {
+        class GenStack<T>
+        {
+            int capacity;
+            T[] stack;
+            int top;
+
+            public GenStack(int MaxElements)
+            {
+                capacity = MaxElements;
+                stack = new T[capacity];
+            }
+
+            public int push(T Element)
+            {
+                if (top == capacity - 1)
+                {
+                    return -1;
+                }
+                else
+                {
+                    top = top + 1;
+                    stack[top] = Element;
+                }
+                return 0;
+            }
+
+            public T pop()
+            {
+                T removedElement;
+                T temp = default(T);
+
+                if (!(top <= 0))
+                {
+                    removedElement = stack[top];
+                    top = top - 1;
+                    return removedElement;
+                }
+                return temp;
+            }
+
+            public T[] GetAllStackElements()
+            {
+                T[] Elements = new T[top + 1];
+                Array.Copy(stack, 0, Elements, 0, top + 1);
+                return Elements;
+            }
+
+        }
+
+        static void Main(string[] args)
+        {
+            
+
+            GenStack<string> stack = new GenStack<string>(10);
+
+            while (true)
+            {
+                Console.WriteLine("1. Push");
+                Console.WriteLine("2. Pop");
+                Console.WriteLine("3. Print stack elements");
+                Console.WriteLine("4. Exit");
+
+                Console.WriteLine("enter choice: ");
+                int choice = int.Parse(Console.ReadLine());
+
+                switch (choice)
+                {
+                    case 1:
+                        {
+                            Console.WriteLine("enter string to push: ");
+                            string temp = Console.ReadLine();
+                            int result = stack.push(temp);
+
+                            if (result != -1)
+                            {
+                                Console.WriteLine("element pushed");
+                                Console.WriteLine("--------------");
+                            }
+                            else
+                            {
+                                Console.WriteLine("stack overflow");
+                            }
+                            break;
+                        }
+
+                        case 2:
+                        {
+                            string result2 = stack.pop();
+                            if (result2 != null)
+                            {
+                                Console.WriteLine("deleted element: " + result2);
+                                Console.WriteLine("--------------");
+
+                            }
+                            else
+                            {
+                                Console.WriteLine("stack underflow");
+                            }
+                            break;
+                        }
+                    case 3:
+                        {
+                            string[] Elements = stack.GetAllStackElements();
+                            foreach (string el in Elements)
+                            {
+                                Console.WriteLine(el);
+                                Console.WriteLine("--------------");
+
+                            }
+                            break;
+                        }
+                    case 4:
+                        {
+                            System.Diagnostics.Process.GetCurrentProcess().Kill();
+                            break; 
+                        } 
+
+                        Console.ReadLine();
+
+
+                }
+            }
+
+
+
+        }
+    }
+}
