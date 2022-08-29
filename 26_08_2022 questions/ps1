@@ -73,6 +73,43 @@ namespace _2608_ps
     }
 }
 
+=================================================================================================================================================
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _2608_ps
+{
+    internal class student2
+    {
+        struct student22
+        {
+            public int rollno;
+            public int RollNo
+            {
+                get { return rollno; }
+                set { rollno = value; }
+            }
+
+            private string fname;
+            public string fName
+            {
+                get { return fname; }
+                set { fname = value; }
+            }
+
+            private string lname;
+            public string lName
+            {
+                get { return lname; }
+                set { lname = value; }
+            }
+        }
+    }
+}
 
 
 
