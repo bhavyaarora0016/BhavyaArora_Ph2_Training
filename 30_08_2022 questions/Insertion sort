@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _3008_ps
+{
+    class Insertion_Sort
+    {
+        static void Insert(int[] arr)
+        {
+
+            int i, j, temp;
+            int n = arr.Length;
+            for (i = 0; i < n; i++)
+            {
+                temp = arr[i];
+                j = i - 1;
+                while (j >= 0 && temp <= arr[j])
+                {
+                    arr[j + 1] = arr[j];
+                    j = j - 1;
+                }
+                arr[j + 1] = temp;
+            }
+        }
+
+        static void PrintSortedArray(int[] arr)
+        {
+
+            int n = arr.Length;
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine(arr[i]);
+            }
+
+        }
+
+
+        static void Main(string[] args)
+        {
+            int[] arr = new int[] { 16, 999, 420, 69, 444, 51, 7 };
+            Insert(arr);
+            Console.WriteLine("Insertion sort: ");
+            PrintSortedArray(arr);
+            Console.Read();
+        }
+    }
+}
