@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _3008_ps
+{
+    class Selection_Sort
+    {
+        static void SelectionSort(int[] arr)
+        {
+            int indexMin, i, j;
+            int len = arr.Length - 1;
+            for (i = 0; i < len; i++)
+            {
+                indexMin = i;
+                for (j = i + 1; j < arr.Length; j++)
+                {
+                    if (arr[j] < arr[indexMin])
+                    {
+                        indexMin = j;
+                    }
+                }
+                if (indexMin != i)
+                {
+                    int temp = arr[indexMin];
+                    arr[indexMin] = arr[i];
+                    arr[i] = temp;
+                }
+            }
+
+            Console.WriteLine("Selection sort: ");
+            for (int k = 0; k < arr.Length; k++)
+            {
+                Console.WriteLine(arr[k]);
+            }
+
+        }
+
+        static void Main(string[] args)
+        {
+            int[] arr = new int[] { 16, 999, 420, 69, 444, 51, 7 };
+            SelectionSort(arr);
+            Console.Read();
+
+        }
+    }
+}
