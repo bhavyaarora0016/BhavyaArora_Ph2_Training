@@ -1,0 +1,132 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CatProLib
+{
+    public class Category
+    {
+        public Category()
+        {
+
+        }
+
+        private int catId;
+
+        public int getCatId
+        {
+            get { return catId; }
+            set { catId = value; }
+        }
+        private string catName;
+
+        public string getCatName
+        {
+            get { return catName; }
+            set { catName = value; }
+        }
+
+        public Category(int catid, string catname)
+        {
+            getCatId = catid;
+            getCatName = catname;
+        }
+
+        public void AddCategory(int catid, string catname)
+        {
+            getCatId = catid;
+            getCatName = catname;
+            Console.WriteLine("Enter description : ");
+            getDescription = Console.ReadLine();
+        }
+
+        public static int ProductCount = 0;
+        List<Product> products = new List<Product>();
+        public void AddItems(Product p)
+        {
+            products.Add(p);
+            ProductCount++;
+        }
+        public void ShowDetails()
+        {
+            Console.WriteLine("Category Name : " + this.getCatName);
+            foreach (var item in products)
+            {
+                Console.WriteLine("Name : " + item.getPName + "\t" + "Uint Price : " + item.getUnitPrice);
+            }
+            Console.WriteLine("Product count : " + ProductCount);
+            Console.WriteLine("======================================================");
+        }
+
+        private string description;
+
+        public string getDescription
+        {
+            get { return description; }
+            set { description = value; }
+        }
+
+=====================================================================================================================
+
+        public class Product
+        {
+            private int pId;
+
+            public Product()
+            {
+
+            }
+            public Product(int pid, string pName)
+            {
+                getPid = pid;
+                getPName = pName;
+            }
+            public void AddProducts(int pid, string pName)
+            {
+                getPid = pid;
+                getPName = pName;
+                Console.WriteLine("Enter Unit Price For This Product: " + pName);
+                getUnitPrice = Int32.Parse(Console.ReadLine());
+            }
+            public int getPid
+            {
+                get { return pId; }
+                set { pId = value; }
+            }
+            private string pName;
+
+            public string getPName
+            {
+                get { return pName; }
+                set { pName = value; }
+            }
+            private int qtySold;
+
+            public int getQtySold
+            {
+                get { return qtySold; }
+                set { qtySold = value; }
+            }
+            private int unitPrice;
+
+            public int getUnitPrice
+            {
+                get { return unitPrice; }
+                set { unitPrice = value; }
+            }
+
+            private int qtyinHand;
+
+            public int getQtyinHand
+            {
+                get { return qtyinHand; }
+                set { qtyinHand = value; }
+            }
+
+
+        }
+
+    }
+}
