@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using BookLib;
+
+namespace _0509_questions
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Book bk1 = new Book(1,"Blockchain Revolution",499,"Alex Tapscott");
+            
+            Book bk2 = new Book();
+            bk2.InsertBook(2, "Norse Mythology", 699);
+
+            Book bk3 = new Book();
+            bk3.InsertBook(3, "Ikigai",899);
+
+            Cart ct1 = new Cart();
+            ct1.AddToCart(bk1);
+            ct1.AddToCart(bk2);
+            ct1.AddToCart(bk3);
+
+            ct1.DisplayBooks();
+            Console.ReadKey();
+        }
+    }
+}
