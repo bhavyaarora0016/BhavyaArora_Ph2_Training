@@ -1,0 +1,124 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _0609_ps
+{
+    abstract class Person
+    {
+        public abstract void Work();
+    }
+
+    interface IBank
+    {
+        void PrintBalance();
+        void CalculateInterest();
+    }
+
+    public class Saving : IBank
+    {
+        public static DateTime lastDeposit = new DateTime();
+        public static DateTime lastWithdraw = new DateTime();
+
+        private static double balance = 10000;
+        public double getBalance
+        {
+            get { return balance; }
+            set { balance = value; }
+        }
+        public void PrintBalance()
+        {
+            Console.WriteLine("The Available Account Balance is : " + balance);
+        }
+
+        public void CalculateInterest()
+        {
+            double interest = (balance * 5 * 4) / 100;
+            Console.WriteLine("Total interest for Five years : {0}", interest);
+        }
+
+        public void CalculateInterest(int year)
+        {
+            double interest = (balance * year * 4) / 100;
+            Console.WriteLine($"Total interest for {year} years : " + interest);
+        }
+
+        public void Duration()
+        {
+            Console.WriteLine(lastDeposit.Subtract(lastWithdraw));
+        }
+    }
+
+    public class Current : IBank
+    {
+        private static double balance = 20000;
+
+        public static DateTime lastDeposit = new DateTime();
+        public static DateTime lastWithdraw = new DateTime();
+        public double getBalance
+        {
+            get { return balance; }
+            set { balance = value; }
+        }
+
+        public void CalculateInterest()
+        {
+            double interest = (balance * 5 * 2) / 100;
+            Console.WriteLine("Interest for Five years : {0}" , interest);
+        }
+        public void CalculateInterest(int year)
+        {
+            double interest = (balance * year * 2) / 100;
+            Console.WriteLine($"Total interest for {year} years : " + interest);
+        }
+
+        public void PrintBalance()
+        {
+            Console.WriteLine("The Available Balance is : " + balance);
+        }
+    }
+
+    public static class Extension
+    {
+        public static void Withdraw(this Saving s, int amt)
+        {
+            if (amt > s.getBalance)
+            {
+                Console.WriteLine("Insufficient Amount");
+            }
+            else
+            {
+                Saving.lastWithdraw = DateTime.Now;
+                s.getBalance = s.getBalance - amt;
+            }
+
+        }
+        public static void Withdraw(this Current c, int amt)
+        {
+            if (amt > c.getBalance)
+            {
+                Console.WriteLine("Insufficient Amount");
+            }
+            else
+            {
+                Current.lastWithdraw = DateTime.Now;
+                c.getBalance = c.getBalance - amt;
+            }
+
+        }
+        public static void Deposit(this Saving s, int amt)
+        {
+
+            Saving.lastDeposit = DateTime.Now;
+            s.getBalance = s.getBalance + amt;
+        }
+        public static void Deposit(this Current c, int amt)
+        {
+            Current.lastDeposit = DateTime.Now;
+            c.getBalance = c.getBalance + amt;
+        }
+    }
+
+}
