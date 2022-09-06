@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _0609_ps
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Saving s = new Saving();
+            Console.WriteLine("Account Balance : " + s.getBalance);
+            s.PrintBalance();
+            Extension.Deposit(s, 420);
+            s.Deposit(212);
+            Console.WriteLine("Account Balance : " + s.getBalance);
+            s.PrintBalance();
+            Console.WriteLine("------------------------");
+
+            Current c = new Current();
+            Console.WriteLine("Current Balance : " + c.getBalance);
+            c.PrintBalance();
+            c.Deposit(69);
+            Console.WriteLine("Current Balance : " + c.getBalance);
+            c.PrintBalance();
+            Console.WriteLine("------------------------");
+
+
+            s.Withdraw(999);
+            c.Withdraw(71);
+            s.PrintBalance();
+            c.PrintBalance();
+            Console.WriteLine("------------------------");
+
+            Console.WriteLine("Duration:  ");
+            s.Duration();
+
+            Console.ReadKey();
+        }
+    }
+}
