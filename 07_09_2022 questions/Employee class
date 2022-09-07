@@ -1,0 +1,19 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _0709_ps
+{
+    public delegate int Years(Employee emp);
+    public class Employee
+    {
+        public int yearJoining { get; set; }
+
+        public int yearService(Employee emp)
+        {
+            return (DateTime.Now.Year) - emp.yearJoining;
+        }
+    }
+}
