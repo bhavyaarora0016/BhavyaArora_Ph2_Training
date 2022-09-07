@@ -1,0 +1,84 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _0709_ps
+{
+    public delegate int arrLength(string st);
+
+    public delegate void Greet(string st);
+
+    public delegate int psMath(int num1, int num2);
+
+    public delegate string Concat(string st1, string st2);
+
+    public delegate string UpperCase(string st);
+
+    internal class clDelegate
+    {
+        public static int Length(string st)
+        {
+            Console.WriteLine($"length of {st} is: ");
+            return st.Length;
+        }
+
+        public static void userGreet(string st)
+        {
+            Console.WriteLine("Hello " + st);
+        }
+
+        public int Add(int x, int y)
+        {
+            Console.WriteLine("Addition of {0} & {1}: {2}" , x,y,x+y);
+            return x + y;
+        }
+
+        public int Subtract(int x, int y)
+        {
+            Console.WriteLine("Subtraction of {0} & {1}: {2}", x, y, x - y);
+            return x - y;
+        }
+
+        public int Multiply(int x, int y)
+        {
+            Console.WriteLine("Multiplication of {0} & {1}: {2}", x, y, x * y);
+            return x * y;
+        }
+
+        public static string Upper(string st)
+        {
+            return char.ToUpper(st[0]) + st.Substring(1);
+        }
+
+        static void Main(string[] args)
+        {
+            arrLength lgt = new arrLength(Length);
+            int arrlgt = lgt("bhavya");
+            Console.WriteLine(arrlgt);
+
+            Console.WriteLine("----------------");
+
+            Greet gt = new Greet(userGreet);
+            gt("Anita");
+
+            Console.WriteLine("----------------");
+
+            clDelegate cld = new clDelegate();
+            psMath[] mt = new psMath[3] {cld.Add, cld.Subtract, cld.Multiply};
+            psMath mt1 = (psMath)MulticastDelegate.Combine(mt);
+            mt1(16, 07);
+
+            Console.WriteLine("----------------");
+
+            Concat ct = delegate(string st1,string st2) { return st1 + st2; };
+            Console.WriteLine(ct("bhavya","arora"));
+
+
+
+            Console.ReadLine();
+
+        }
+    }
+}
