@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _0709_ps
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Product p1 = new Product() { ProductId=1, ProductName="Chips"};
+            Product p2 = new Product() { ProductId = 2, ProductName = "Cakes" };
+
+            Productprnt prt = new Productprnt(Product.Print);
+            prt(p1);
+            prt(p2);
+
+            Console.WriteLine("------------------------");
+
+            Employee e1 = new Employee() { yearJoining=2016};
+            Employee e2 = new Employee() { yearJoining = 2011 };
+
+            Years y = delegate (Employee e) { return DateTime.Now.Year - e.yearJoining; };
+            int emp1 = y(e1);
+            Console.WriteLine("years of service employee1 : " + emp1);
+            int emp2 = y(e2);
+            Console.WriteLine("years of service employee2 : " + emp2);
+
+            Console.WriteLine("------------------------");
+
+            UpperCase upr = new UpperCase(clDelegate.Upper);
+            Console.WriteLine("Upper case: " + upr("bhavya arora"));
+
+            Console.ReadKey();
+
+        }
+    }
+}
