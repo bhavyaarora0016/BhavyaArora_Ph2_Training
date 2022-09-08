@@ -1,0 +1,158 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _0809_ps
+{
+	public delegate void EmpAddDelete(Employee emp);
+	public delegate void EmpDeleteId(int emp);
+	public delegate void PrintList(List<Employee> list);
+
+    public class Department
+    {
+		private int Deptno;
+
+		public int deptNumber
+		{
+			get { return Deptno; }
+			set { Deptno = value; }
+		}
+
+		private string Deptname;
+
+		public string deptName
+		{
+			get { return Deptname; }
+			set { Deptname = value; }
+		}
+
+		public int empCount = 0;
+		public static event EmpDeleteId removeEmpId;
+		public static event EmpAddDelete empAdd;
+		public static event EmpAddDelete empDelete;
+
+		public List<Employee> empList = new List<Employee>();
+
+
+
+
+
+		public void PrintList(List<Employee> list)
+		{
+			if (list==null)
+			{
+				Console.WriteLine("List is empty.");
+			}
+			else
+			{
+				foreach (var item in list)
+				{
+					Console.WriteLine(item.EmployeeName);
+				}
+			}
+		}
+
+		public void DisplayList()
+		{
+			if (empList==null)
+			{
+				Console.WriteLine("Empty list.");
+			}
+			else
+			{
+				foreach (var item in empList)
+				{
+					Console.WriteLine(item.EmployeeName);
+				}
+			}
+		}
+
+		public void RemovebyId(int emp)
+		{
+            removeEmpId = EmpDeleteIdDelegate;
+			removeEmpId(emp);
+		}
+
+		public void Operation(Employee emp)
+		{
+			empAdd = AddDelegate;
+			empDelete = DeleteDelegate;
+
+			Console.WriteLine("1.Add Employee \t 2.Remove Employee");
+			int choice = Convert.ToInt32(Console.ReadLine());
+
+			switch (choice)
+			{
+				case 1:
+					if (empCount>10)
+					{
+						Console.WriteLine("Department full");
+						break;
+					}
+					else
+					{
+						empCount++;
+						empAdd(emp);
+					}
+                    break;
+
+				case 2:
+					if (empCount == 0)
+					{
+						Console.WriteLine("department empty (nothing to delete)");
+					}
+					else
+					{
+						empDelete(emp);
+						empCount--;
+					}
+					break;
+
+					default:
+					Environment.Exit(1);
+					break;
+
+            }
+        }
+
+		public void AddDelegate(Employee emp)
+		{
+			EmpAddDelete add = new EmpAddDelete(AddToList);
+			add.Invoke(emp);
+		}
+
+		public void AddToList(Employee emp)
+		{
+			empList.Add(emp);
+			Console.WriteLine("employee added successfully");
+		}
+
+        public void DeleteDelegate(Employee emp)
+        {
+            EmpAddDelete del = new EmpAddDelete(DeleteFromList);
+            del.Invoke(emp);
+        }
+
+        public void DeleteFromList(Employee emp)
+        {
+            empList.RemoveAll(emp1=>emp1.EmployeeId==emp.EmployeeId);
+            Console.WriteLine("employee added successfully");
+        }
+
+		public void EmpDeleteIdDelegate(int emp)
+		{
+			EmpDeleteId delid = new EmpDeleteId(DeleteEmpId);
+			delid.Invoke(emp);
+
+        }
+
+		public void DeleteEmpId(int emp)
+		{
+			empList.RemoveAll(emp1 => emp1.EmployeeId == emp);
+			Console.WriteLine("employee removed successfully.");
+		}
+
+    }
+}
