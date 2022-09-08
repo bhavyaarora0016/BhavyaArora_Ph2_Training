@@ -36,7 +36,16 @@ namespace _0809_ps
 		public List<Employee> empList = new List<Employee>();
 
 
-
+		public void Report(List<Employee> list)
+		{
+			Func<List<Employee>, List<Employee>> ans = (s1)=>s1.FindAll(emp=>emp.mgr!=null).ToList();
+			var sam = ans(list);
+			foreach (var item in sam)
+			{
+				Console.WriteLine(item.EmployeeName);
+			}
+			Console.WriteLine("-------------------");
+		}
 
 
 		public void PrintList(List<Employee> list)
@@ -153,6 +162,8 @@ namespace _0809_ps
 			empList.RemoveAll(emp1 => emp1.EmployeeId == emp);
 			Console.WriteLine("employee removed successfully.");
 		}
+
+
 
     }
 }
