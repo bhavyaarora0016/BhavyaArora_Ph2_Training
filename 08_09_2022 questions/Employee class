@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _0809_ps
+{
+    public class Employee
+    {
+		private int empid;
+
+		public int EmployeeId
+		{
+			get { return empid; }
+			set { empid = value; }
+		}
+
+		private int empname;
+
+		public int EmployeeName
+		{
+			get { return empname; }
+			set { empname = value; }
+		}
+
+		private int deptno;
+
+		public int DepartmentNo
+		{
+			get { return deptno; }
+			set { deptno = value; }
+		}
+
+		private double sal;
+
+		public double Salary
+		{
+			get { return sal; }
+			set { sal = value; }
+		}
+
+		public string mgr { get; set; }
+
+
+
+
+	}
+}
