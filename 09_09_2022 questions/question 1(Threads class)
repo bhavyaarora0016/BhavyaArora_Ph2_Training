@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace _0909_ps
+{
+    class ThreadsClass
+    {
+        public static void mtd1()
+        {
+            for (int i = 0; i <= 10; i++)
+            {
+                Console.WriteLine("Method 1 = {0}", i);
+
+                if (i==5)
+                {
+                    Thread.Sleep(5000);
+                }
+            }
+        }
+
+        public static void mtd2()
+        {
+            for (int i = 0; i <= 3; i++)
+            {
+                Console.WriteLine("Method 2 = {0}", i);
+
+
+            }
+        }
+
+        public void mtd3()
+        {
+            Console.WriteLine("Method 3");
+        }
+
+        static void Main(string[] args)
+        {
+            Thread th1 = new Thread(mtd1);
+            Thread th2 = new Thread(mtd2);
+
+            th1.Start();
+            th2.Start();
+
+            Console.ReadKey();
+        }
+    }
+}
