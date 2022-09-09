@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace _0909_ps
+{
+    class MutexMethod
+    {
+        static void Main(string[] args)
+        {
+            using (Mutex mutex = new Mutex(true,"MutexMethod"))
+            {
+                if (!mutex.WaitOne(5000,true))
+                {
+                    Console.WriteLine("application running...");
+                    Console.ReadKey();
+                    return;
+                }
+                Console.WriteLine("application already running...");
+                Console.ReadKey();
+            }
+        }
+    }
+}
