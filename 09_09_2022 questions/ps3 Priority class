@@ -1,0 +1,70 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace _0909_ps
+{
+    class PriorityClass
+    {
+        public static void thd1()
+        {
+            Console.WriteLine("Thread 1 working...");
+        }
+
+        public static void thd2()
+        {
+            Console.WriteLine("Thread 2 working...");
+        }
+
+        public static void thd3()
+        {
+            Console.WriteLine("Thread 3 working...");
+        }
+
+        public static void thd4()
+        {
+            Console.WriteLine("Thread 4 working...");
+        }
+
+        public static void thd5()
+        {
+            Console.WriteLine("Thread 5 working...");
+        }
+
+        static void Main(string[] args)
+        {
+            Thread t1 = new Thread(thd1);
+            Thread t2 = new Thread(thd2);
+            Thread t3 = new Thread(thd3);
+            Thread t4 = new Thread(thd4);
+            Thread t5 = new Thread(thd5);
+
+
+            t1.Priority = ThreadPriority.BelowNormal;
+            t2.Priority = ThreadPriority.Lowest;
+            t3.Priority = ThreadPriority.Highest;
+            t4.Priority = ThreadPriority.AboveNormal;
+            t5.Priority = ThreadPriority.Normal;
+
+            Console.WriteLine("Priority of Thread 1: {0}", t1.Priority);
+            Console.WriteLine("Priority of Thread 2: {0}", t2.Priority);
+            Console.WriteLine("Priority of Thread 3: {0}", t3.Priority);
+            Console.WriteLine("Priority of Thread 4: {0}", t4.Priority);
+            Console.WriteLine("Priority of Thread 5: {0}", t5.Priority);
+
+            Console.WriteLine("-------------------");
+
+            t1.Start();
+            t2.Start();
+            t3.Start();
+            t4.Start();
+            t5.Start();
+
+            Console.Read();
+        }
+
+    }
+}
