@@ -1,0 +1,85 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace _0909_ps
+{
+    class ThreadEnum
+    {
+        static void mtd1()
+        {
+            Thread.Sleep(3000);
+            Console.WriteLine("sleep state: {0}", Thread.CurrentThread.ThreadState);
+        }
+
+        static void mtd2()
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                Console.WriteLine("thread name: {0}", Thread.CurrentThread.Name);
+                Console.WriteLine("sleep state: {0}", Thread.CurrentThread.ThreadState);
+
+                Thread.Sleep(200);
+            }
+        }
+
+        private static void ThreadStatesAlive()
+        {
+            Thread th1 = new Thread(mtd1);
+            Thread th2 = new Thread(mtd2);
+
+            Console.WriteLine("Thread 1 alive: " + th1.IsAlive);
+            Console.WriteLine("Thread 2 alive: " + th2.IsAlive);
+            Console.WriteLine("Thread 1 state: " + th1.ThreadState);
+            Console.WriteLine("Thread 2 state: " + th2.ThreadState);
+
+            Console.WriteLine("-----------------");
+
+            th1.Start();
+            th2.Start();
+
+            Console.WriteLine("after start-------");
+            
+            Console.WriteLine("Thread 1 alive: " + th1.IsAlive);
+            Console.WriteLine("Thread 2 alive: " + th2.IsAlive);
+            Console.WriteLine("Thread 1 state: " + th1.ThreadState);
+            Console.WriteLine("Thread 2 state: " + th2.ThreadState);
+
+            Console.WriteLine("-----------------");
+
+            th1.Abort();
+            th2.Abort();
+
+            Console.WriteLine("after abort-------");
+
+            Console.WriteLine("Thread 1 state: " + th1.ThreadState);
+            Console.WriteLine("Thread 2 state: " + th2.ThreadState);
+
+            Console.WriteLine("-----------------");
+
+        }
+
+        static void Main(string[] args)
+        {
+            ThreadStatesAlive();
+
+            Thread th1 = new Thread(new ThreadStart(mtd1));
+            th1.Name = "Thread 01";
+
+            Thread th2 = new Thread(mtd2);
+            th2.Name = "Thread 02";
+
+            th1.Priority = ThreadPriority.Lowest;
+            th2.Priority = ThreadPriority.Highest;
+
+            th1.Start();
+            th2.Start();
+
+
+            Console.ReadKey();
+        }
+    }
+}
