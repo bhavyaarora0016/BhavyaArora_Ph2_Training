@@ -1,0 +1,60 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace _0909_ps
+{
+    class MonitorClass
+    {
+        static readonly object obj = new object();
+
+        public static void PrintNum()
+        {
+            Monitor.Enter(obj);
+            try
+            {
+                for (int i = 0; i < 7; i++)
+                {
+                    Thread.Sleep(100);
+                    Console.WriteLine(i);
+                    
+                }
+                Console.WriteLine("-----");
+            }
+            finally
+            {
+                Monitor.Exit(obj);
+            }
+            
+        }
+
+        static void LockTest()
+        {
+            lock (obj)
+            {
+                Thread.Sleep(100);
+                Console.WriteLine(Environment.TickCount);
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            Thread[] thd = new Thread[4];
+
+            for (int i = 0; i < 4; i++)
+            {
+                thd[i] = new Thread(new ThreadStart(PrintNum));
+                thd[i].Name = "Child" + i;
+            }
+            foreach (Thread item in thd)
+            {
+                item.Start();
+            }
+
+            Console.Read();
+        }
+    }
+}
