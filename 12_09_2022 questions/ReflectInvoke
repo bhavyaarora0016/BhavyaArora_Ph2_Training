@@ -1,0 +1,81 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ReflectLib
+{
+    public class ReflectInvoke
+    {
+        static void Main(string[] args)
+        {
+            string path = @"D:\c#_training\12_09_2022 questions\ReflectLib\bin\Debug\ReflectLib.dll";
+
+
+            Assembly asmbl = Assembly.LoadFile(path);
+
+            Type type = asmbl.GetType("Reflection_Demo.Maths");
+            Console.WriteLine("class name: " + type);
+
+            MethodInfo[] mtdinfo = type.GetMethods();
+
+            foreach (var item in mtdinfo)
+            {
+                Console.WriteLine("method name: " + item.Name);
+            }
+
+            MethodInfo minfo1 = type.GetMethod("Cube");
+            MethodInfo minfo2 = type.GetMethod("Cube");
+
+            PropertyInfo prop = null;
+
+            try
+            {
+                prop = type.GetProperty("Number");
+                prop.SetValue("set_Number", 69.420);
+                object ans = prop.GetValue(type, null);
+                Console.WriteLine("Get value: " + ans);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Message: " + ex.Message);
+            }
+
+            if (minfo1!=null && minfo2 != null)
+            {
+                object Result = null;
+
+                ParameterInfo[] paraInfo1 = minfo1.GetParameters();
+                ParameterInfo[] paraInfo2 = minfo2.GetParameters();
+
+                object CreateInstance = Activator.CreateInstance(type, null);
+
+                if (paraInfo1.Length == 0)
+                {
+                    Result = minfo1.Invoke(CreateInstance, null);
+                    Console.WriteLine("Cube result: " + Result);
+
+                    Result = minfo2.Invoke(CreateInstance, null);
+                    Console.WriteLine("Cube result: " + Result);
+                }
+                else
+                {
+                    object[] para = new object[] { 16 };
+
+                    Result = minfo1.Invoke(CreateInstance, para);
+                    Console.WriteLine("Cube result: " + Result);
+
+                    Result = minfo2.Invoke(CreateInstance, para);
+                    Console.WriteLine("Cube result: " + Result);
+
+
+                }
+
+            }
+
+        }
+
+    }
+}
