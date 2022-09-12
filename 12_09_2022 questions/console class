@@ -1,0 +1,58 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
+using ReflectLib;
+
+namespace _1209_ps_Reflection
+{
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            string path = @"D:\c#_training\12_09_2022 questions\ReflectLib\bin\Debug\ReflectLib.dll";
+
+            Assembly assembly = Assembly.LoadFile(path);
+
+            Type[] types = assembly.GetTypes();
+
+            foreach (var item in types)
+            {
+                Console.WriteLine("Name: " + item.Name);
+                Console.WriteLine("Full name: " + item.FullName);
+                Console.WriteLine("IS class: " + item.IsClass);
+                Console.WriteLine("IS abstract: " + item.IsAbstract);
+                Console.WriteLine("IS public: " + item.IsPublic);
+
+                Console.WriteLine("===========================");
+
+                MethodInfo[] mthdInfos = item.GetMethods();
+
+                foreach (var item1 in mthdInfos)
+                {
+                    Console.WriteLine("Name: " + item1.Name);
+                    Console.WriteLine("IS public: " + item1.IsPublic);
+                    Console.WriteLine("Is static: " + item1.IsStatic);
+
+                    ParameterInfo[] parinfo = item1.GetParameters();
+
+                    if (item1.Name == "Add")
+                    {
+                        Console.WriteLine("add method------");
+                        foreach (var pr in parinfo)
+                        {
+                            Console.WriteLine(pr.Name);
+                            Console.WriteLine(pr.Position);
+                            Console.WriteLine(pr.ParameterType);
+                        }
+                    }
+                }
+
+                Console.WriteLine("foreach loop--------------");
+            }
+
+        }
+    }
+}
