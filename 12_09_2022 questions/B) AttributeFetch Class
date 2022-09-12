@@ -1,0 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _1209_ps_Reflection
+{
+    public class AttributeFetch
+    {
+        static void fetchAttribute(Type ty)
+        {
+            Console.WriteLine("Class name: " + ty.Name);
+
+            Attribute[] att = Attribute.GetCustomAttributes(ty);
+
+            foreach (var item in att)
+            {
+                if (item is StereoDiscAttribute)
+                {
+                    StereoDiscAttribute sda = (StereoDiscAttribute)item;
+                    Console.WriteLine("name of the song: " + sda.songName);
+                    Console.WriteLine("song language: " + sda.language);
+                }
+            }
+
+            MemberInfo[] members = ty.GetMembers();
+
+            foreach (var item in members)
+            {
+                Console.WriteLine("name: " + item.Name);
+                Attribute[] memberatt = Attribute.GetCustomAttributes(item);
+
+                foreach (var item1 in memberatt)
+                {
+                    if (item1 is StereoDiscAttribute )
+                    {
+                        StereoDiscAttribute sda1 = (StereoDiscAttribute)item1;
+                        Console.WriteLine("song name: " + sda1.songName);
+                        Console.WriteLine("song language: " + sda1.language);
+                    }
+                }
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            fetchAttribute(typeof(Song));
+        }
+    }
+}
