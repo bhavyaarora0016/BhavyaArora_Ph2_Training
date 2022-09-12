@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ReflectLib
+{
+    internal class ReflectAns
+    {
+        static void Main(string[] args)
+        {
+            string path = @"D:\c#_training\12_09_2022 questions\ReflectLib\bin\Debug\ReflectLib.dll";
+
+            Assembly asmb = Assembly.LoadFile(path);
+
+            Console.WriteLine("full name: " + asmb.GetName().Name);
+
+            Type type = asmb.GetType("Reflection_Demo.Maths");
+
+            object obj = Activator.CreateInstance(type);
+
+            PropertyInfo prop = type.GetProperty("Number");
+            prop.SetValue("Number", 101);
+
+            type.InvokeMember("Cube", BindingFlags.Public | BindingFlags.Instance | BindingFlags.InvokeMethod, null, obj, new object[1] { prop });
+        }
+    }
+}
