@@ -1,0 +1,25 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using BusinessLogicLib;
+using DataAccessLib;
+
+
+namespace HelperLib
+{
+    public class Class1
+    {
+        public List<Products> GetProducts()
+        {
+            public List<Products> GetProducts()
+            {
+                DalCon d = new DalCon();
+                List<Products> products = new List<Products>();
+                products = d.ShowProducts();
+                return products;
+            }
+        }
+    }
+}
