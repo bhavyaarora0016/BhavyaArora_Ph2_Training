@@ -1,0 +1,68 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BusinessLogicLib
+{
+    public class Products
+    {
+		private int prodid;
+
+		public int ProductId
+		{
+			get { return prodid; }
+			set
+			{
+				if (value.ToString().Length>4)
+				{
+					throw new Exception("Invalid product ID");
+				}
+				else
+				{
+					prodid = value;
+				}
+			}
+		}
+
+		private string prodname;
+
+		public string ProductName
+		{
+			get { return prodname; }
+			set
+			{
+				if (String.IsNullOrEmpty(value) || value.Length>80)
+				{
+					throw new Exception("Product name can't be empty or more than 80 characters.");
+				}
+				else
+				{
+					prodname = value;
+				}
+			}
+		}
+
+		private double unitprice;
+
+		public double UnitPrice
+		{
+			get { return unitprice; }
+			set
+			{
+				if (value.ToString().Length>8)
+				{
+					throw new Exception("Invalid unit price");
+				}
+				else
+				{
+					unitprice = value;
+				}
+			}
+		}
+
+
+
+	}
+}
