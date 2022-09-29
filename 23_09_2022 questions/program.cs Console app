@@ -1,0 +1,44 @@
+using BusinessLogicLib;
+using HelperLib;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _2309_ps
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            
+                int count = 0;
+                try
+                {
+                    Class1 c = new Class1();
+                    List<Products> products = new List<Products>();
+                    products = c.GetProducts();
+                    foreach (var item in products)
+                    {
+                        Console.WriteLine(item.ProductId + "\t  " + item.ProductName + "\t | " + item.UnitPrice);
+
+
+                        count++;
+                    }
+
+                }
+                catch (Exception ex)
+                {
+
+                    Console.WriteLine("Error Message : " + ex.Message);
+                }
+                finally
+                {
+                    Console.WriteLine("Count : " + count);
+                }
+
+            }
+        }
+    }
+
