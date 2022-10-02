@@ -15,8 +15,8 @@ namespace webapp1
             HttpCookie cookie;
              cookie = Request.Cookies.Get("CustData");
             Customer c = new Customer();
-            c.firstName = cookie["fName"];
-            c.lastName = cookie["lName"];
+            c.first_name = cookie["fName"];
+            c.last_name = cookie["lName"];
             c.dob = DateTime.Parse(cookie["dob1"]);
             c.city = cookie["city1"];
             c.state = cookie["state1"];
@@ -25,7 +25,5 @@ namespace webapp1
           //ListBox1.Items.Add(new ListItem { Text = "1", Value = "Welecome Anand" });
 
         }
-
-      
     }
 }
